@@ -2,5 +2,5 @@
 set -e
 
 # setup ros environment
-source "/root/ros_catkin_ws/install/setup.bash"
+source "/root/ros_catkin_ws/devel/setup.bash"
 exec "$@"

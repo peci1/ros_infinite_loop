@@ -22,7 +22,6 @@ RUN apt-get update && \
             bash-completion \
             byobu \
             git \
-            htop \
             less \
             tree \
             wget \
@@ -67,10 +66,7 @@ RUN mv /bin/sh /bin/sh-old && \
 WORKDIR $CATKIN_WS
 ENV TERM xterm
 ENV PYTHONIOENCODING UTF-8
-RUN catkin config --install && \
-    catkin build --no-status --summarize
-RUN catkin config --no-install && \
-    catkin build --no-status --summarize
+RUN catkin build --no-status --summarize
 
 # setup entrypoint
 COPY ./ros_entrypoint.sh /
