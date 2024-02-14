@@ -5,8 +5,10 @@
 
 int main(int argc, char ** argv) {
 
-  struct rlimit file_limit = { .rlim_cur = 12, .rlim_max = 16 };
-  setrlimit(RLIMIT_NOFILE, &file_limit);
+  struct rlimit limit = { .rlim_cur = 0, .rlim_max = 0 };
+	getrlimit(RLIMIT_NOFILE, &limit);
+  
+  printf("limit.rlim_cur: %ld    limit.rlim_max: %ld\n", limit.rlim_cur, limit.rlim_max);
 
   ros::init(argc, argv, "loop");
 
